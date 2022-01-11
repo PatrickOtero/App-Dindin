@@ -1,0 +1,168 @@
+.modal-container {
+  height: 879px;
+  width: 611px;
+  border-radius: 20px;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  right: 650px;
+  z-index: 2;
+
+  font-family: "Rubik", sans-serif;
+}
+
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  background-color: rgba(61, 61, 61, 0.322);
+
+  z-index: 1;
+}
+
+.titulo-e-X-registro {
+  display: flex;
+  gap: 120px;
+
+  margin-bottom: 54px;
+}
+
+.modal-container img {
+  cursor: pointer;
+}
+
+.modal-container h1 {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+}
+
+.btns-add-modal {
+  display: flex;
+
+  margin-bottom: 36px;
+}
+
+#credit-button {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  width: 245px;
+  border-radius: 10px 0px 0px 10px;
+
+  background-color: #b9b9b9;
+}
+
+.credit-focus {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  width: 245px;
+  border-radius: 10px 0px 0px 10px;
+
+  background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
+}
+
+#debit-button {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  width: 245px;
+  border-radius: 0px 10px 10px 0px;
+
+  background-color: #b9b9b9;
+}
+
+.debit-focus {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  width: 245px;
+  border-radius: 0px 10px 10px 0px;
+
+  background: linear-gradient(91.66deg, #fa8c10 0%, #ff576b 90.32%);
+}
+
+.modal-container input {
+  all: unset;
+
+  height: 64px;
+  width: 485px;
+  margin-bottom: 26px;
+  border-radius: 5px;
+
+  border: 1px solid #555555;
+}
+
+.modal-container label {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.btn-insert {
+  all: unset;
+
+  height: 42px;
+  width: 236px;
+  border-radius: 5px;
+
+  background-color: #645ffb;
+  color: white;
+
+  padding: 10px 70px 10px 70px;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.btn-insert:hover {
+  background-color: #7773f3;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.erroModal {
+  color: tomato;
+}

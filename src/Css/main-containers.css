@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  max-width: 100%;
+
+  font-family: "Lato", sans-serif;
+}
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 55px 100px 55px 100px;
+  border-radius: 60px 60px 0px 0px;
+
+  position: relative;
+  bottom: 40px;
+
+  background-color: white;
+}
+
+main {
+  display: flex;
+}

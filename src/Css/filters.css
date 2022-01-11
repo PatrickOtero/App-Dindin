@@ -1,0 +1,197 @@
+.open-filters-button {
+  all: unset;
+
+  height: 30px;
+  width: 80px;
+  border-radius: 10px;
+
+  background-color: #fafafa;
+  cursor: pointer;
+  box-shadow: 0px 2px 11px 0px #0000001a;
+
+  margin-bottom: 26px;
+
+  text-align: center;
+  font-family: Lato;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.icon-filter {
+  max-height: 5.340000152587891px;
+  max-width: 5.380000114440918px;
+}
+
+.container-chip {
+  display: flex;
+  align-content: center;
+  gap: 12px;
+  border-radius: 10px;
+
+  padding: 4px 6px 4px 10px;
+
+  background-color: #fafafa;
+  box-shadow: 0px 2px 11px 0px #0000001a;
+  cursor: pointer;
+
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+}
+
+.container-chip button {
+  all: unset;
+}
+
+.container-filters {
+  display: flex;
+
+  height: 213px;
+  width: 959px;
+  border-radius: 10px;
+
+  background-color: #fafafa;
+  box-shadow: 0px 2px 11px 0px #0000001a;
+
+  margin-bottom: 56px;
+}
+
+.dias-da-semana-filtro {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 250px;
+
+  border-right: 1px solid #eaeaea;
+}
+
+.titulo-filtros {
+  margin-left: 50px;
+  margin-top: 27px;
+  margin-bottom: 20px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+
+  color: #b9b9b9;
+}
+
+.categorias-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+
+  border-right: 1px solid #eaeaea;
+}
+
+.filtros-semana {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding: 0px 40px 40px 40px;
+}
+
+.filtros-categoria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding: 0px 40px 40px 40px;
+}
+
+.valor-filtro {
+  display: flex;
+  flex-direction: column;
+}
+
+.valor-filtro input {
+  height: 22px;
+  width: 65px;
+  margin-bottom: 14px;
+  border-radius: 2px;
+
+  border: 1px solid #7b61ff;
+}
+
+.campos-filtros {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 40px;
+}
+
+.campos-filtros > span {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+
+  margin-bottom: 26px;
+  margin-top: 27px;
+
+  color: #b9b9b9;
+}
+
+.valor-filtro label {
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 11px;
+}
+
+.btn-clear-filters {
+  padding: 8px 10px 8px 10px;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+
+  box-shadow: 0px 2px 11px 0px #0000001a;
+
+  cursor: pointer;
+}
+
+.btn-clear-filters:hover {
+  background-color: wheat;
+}
+
+.btn-apply-filters {
+  padding: 8px 10px 8px 10px;
+  border-radius: 10px;
+
+  background: linear-gradient(264.83deg, #3a9ff1 -3.28%, #05ede3 100%);
+  color: white;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+
+  box-shadow: 0px 2px 11px 0px #0000001a;
+
+  cursor: pointer;
+}
+
+.btn-apply-filters:hover {
+  background: linear-gradient(264.83deg, #86bfee -3.28%, #6bece6 100%);
+}
+
+.botoes-filtros {
+  display: flex;
+  gap: 16px;
+
+  margin-left: 230px;
+}
+
+.chip-ativo {
+  background-color: #7b61ff;
+  color: white;
+}
