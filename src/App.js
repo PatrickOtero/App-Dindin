@@ -77,7 +77,7 @@ function Main() {
 
   const carregarTransacoes = async () => {
     try {
-      const dados = await (await fetch("http://localhost:3334/transactions", {method: "GET"})).json();
+      const dados = await (await fetch("https://dindin-api-test.herokuapp.com/transactions", {method: "GET"})).json();
       setdadosTransacao(dados);
 
     } catch (error) {
@@ -122,7 +122,7 @@ function Main() {
       type: botaoSaida ? "debit" : "credit"
     }
     try {
-    await fetch("http://localhost:3334/transactions", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+    await fetch("https://dindin-api-test.herokuapp.com/transactions", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
 
     await carregarTransacoes();
     } catch (error) {
@@ -155,7 +155,7 @@ function Main() {
     }
 
     try {
-      await fetch("http://localhost:3334/transactions/" + transId, { method: "PUT", headers: { "Content-Type": "application/json"}, body: JSON.stringify(body)});
+      await fetch("https://dindin-api-test.herokuapp.com/transactions/" + transId, { method: "PUT", headers: { "Content-Type": "application/json"}, body: JSON.stringify(body)});
 
       await carregarTransacoes()
     } catch (error) {
@@ -165,7 +165,7 @@ function Main() {
 
   const deletarTransacao = async (transId) => {
     try {
-      await fetch("http://localhost:3334/transactions/" + transId, { method: "DELETE"});
+      await fetch("https://dindin-api-test.herokuapp.com/transactions/" + transId, { method: "DELETE"});
 
       carregarTransacoes()
     } catch (error) {
