@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  align-items: center;
+
+  height: 22.4rem;
+
+  background: linear-gradient(90.23deg, #05ede3 0.02%, #645ffb 99.63%);
+
+  padding-left: 15.3rem;
+}
+
+.Header img {
+  margin-bottom: 8rem;
+}
