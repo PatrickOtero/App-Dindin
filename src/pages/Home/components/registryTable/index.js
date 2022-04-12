@@ -1,29 +1,38 @@
-import './styles/styles.css'
-import setaCima from '../../assets/setaCima.svg'
-import setaBaixo from '../../assets/setaBaixo.svg'
+import { useEffect, useState } from 'react'
 import edit_icon from '../../assets/caneta1.svg'
 import delete_icon from '../../assets/lixeira.svg'
-import { useState } from 'react'
+import setaBaixo from '../../assets/setaBaixo.svg'
+import setaCima from '../../assets/setaCima.svg'
+import useTableReqs from '../../hooks/requisitions/useTableReqs'
+import './styles/styles.css'
 
 function RegistryTable() {
   const [dateOrdenation, setDateOrdenation] = useState(0)
   const [weekDaysOrdenation, setWeekDaysOrdenation] = useState(0)
+  const {
+    handleListAllRegistries,
+    allRegistries,
+    emptyTableWarning,
+  } = useTableReqs()
 
   const handleDateOrder = () => {
     setDateOrdenation(dateOrdenation + 1)
 
     if (dateOrdenation === 2) setDateOrdenation(0)
-
-    console.log(dateOrdenation)
   }
 
   const handleWeekDaysOrder = () => {
     setWeekDaysOrdenation(weekDaysOrdenation + 1)
 
     if (weekDaysOrdenation === 2) setWeekDaysOrdenation(0)
-
-    console.log(weekDaysOrdenation)
   }
+
+  useEffect(() => {
+    const handleLoadAllRegistriesList = async () => {
+      await handleListAllRegistries()
+    }
+    handleLoadAllRegistriesList()
+  }, [])
 
   return (
     <div className="Registries">
@@ -51,17 +60,23 @@ function RegistryTable() {
         </thead>
         <tbody>
           <div className="table-body">
-            <tr>
-              <td className="data-row">02/04/2022</td>
-              <td className="week-row">Domingo</td>
-              <td className="desc-row">Compras para Lazer</td>
-              <td>Lazer</td>
-              <td className="value-row">R$ 234,00</td>
-              <div className="table-row-icons">
-                <img src={edit_icon} alt="caneta"></img>
-                <img src={delete_icon} alt="lixeira"></img>
-              </div>
-            </tr>
+            {allRegistries.length &&
+              allRegistries.map((registry) => {
+                return (
+                  <tr>
+                    <td className="data-row">{registry.registry_date}</td>
+                    <td className="week-row">{registry.week_day}</td>
+                    <td className="desc-row">{registry.description}</td>
+                    <td>{registry.category}</td>
+                    <td className="value-row">{registry.registry_value}</td>
+                    <div className="table-row-icons">
+                      <img src={edit_icon} alt="caneta"></img>
+                      <img src={delete_icon} alt="lixeira"></img>
+                    </div>
+                  </tr>
+                )
+              })}
+            {!allRegistries.length && <h1>{emptyTableWarning}</h1>}
           </div>
         </tbody>
       </table>
