@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import useTableReqs from '../../hooks/requisitions/useTableReqs'
+import RegistryModal from '../modals/registryModal'
 import './styles/styles.css'
 
 function ResumeBox() {
@@ -8,14 +9,22 @@ function ResumeBox() {
     incoming,
     outgoing,
     balance,
+    createRegistrySuccess,
+    editRegistrySuccess,
+    setRegistry_value,
+    setCategory,
+    setRegistry_date,
+    setDescription,
   } = useTableReqs()
+
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     const handleLoadAllRegistriesList = async () => {
       await handleListAllRegistries()
     }
     handleLoadAllRegistriesList()
-  }, [])
+  }, [createRegistrySuccess, editRegistrySuccess])
 
   return (
     <div className="Resume">
@@ -36,7 +45,20 @@ function ResumeBox() {
           <b className="resume-balance-numbers">{balance}</b>
         </div>
       </div>
-      <button type="button">Adicionar Registro</button>
+      <button
+        className="resume-button"
+        onClick={() => {
+          setRegistry_value('')
+          setCategory('')
+          setRegistry_date('')
+          setDescription('')
+          setToggle(true)
+        }}
+        type="button"
+      >
+        Adicionar Registro
+      </button>
+      {toggle && <RegistryModal modalType="Add" setToggle={setToggle} />}
     </div>
   )
 }

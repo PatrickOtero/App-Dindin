@@ -4,108 +4,151 @@
   font-family: 'Lato', sans-serif;
 }
 
-table {
+.table-container {
   width: 96.4rem;
 }
 
-table img {
+.table-container img {
   cursor: pointer;
 }
 
-thead {
+.table-head {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   height: 5.8rem;
+  width: 96.4rem;
 
   box-shadow: 0px 0.2rem 1.1rem 0px #0000001a;
   background-color: #fafafa;
 }
 
-th {
+.table-body {
+  max-height: 40rem;
+
+  overflow: scroll;
+}
+
+.table-headers {
+  width: 96.4rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 10rem;
+
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.7rem;
 }
 
-tbody td {
+.table-head-date-arrow img {
+  position: absolute;
+
+  right: 5rem;
+}
+
+.table-head-date-arrow {
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.table-head-desc-arrow img {
+  position: absolute;
+
+  left: 11rem;
+}
+
+.table-head-desc-arrow {
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.table-header.date {
+  justify-content: unset;
+
+  margin-left: 1rem;
+}
+
+.table-header.desc {
+  width: 14.5rem;
+
   text-align: center;
 }
 
-thead tr {
+.table-header.empty {
+  width: 9rem;
+}
+
+.table-lines {
   display: flex;
-  gap: 7.3rem;
-
-  margin-left: 2rem;
-}
-
-.table-head-weekdays {
-  display: flex;
-  cursor: pointer;
-
-  width: 11rem;
-
-  gap: 0.4rem;
-}
-
-.table-head-date {
-  display: flex;
-  cursor: pointer;
-
-  width: 7.3rem;
-
-  gap: 0.4rem;
-}
-
-.data-head {
-  text-align: start;
-}
-
-.desc-head {
-  width: 11rem;
-}
-
-.table-body {
-  overflow-y: scroll;
-  max-height: 30rem;
-}
-
-tbody tr {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
 
-  gap: 9.3rem;
-
-  margin-left: 2rem;
   height: 6rem;
+
+  padding: 0 2rem;
 }
 
-tbody td {
-  font-size: 1.4rem;
+.table-line {
+  display: flex;
+  justify-content: center;
+
+  width: 8rem;
+
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.7rem;
+  line-height: 17px;
 }
 
-.data-row {
-  font-size: 1.4rem;
+.table-line.desc {
+  width: 13.5rem;
+  max-height: 6rem;
+
+  overflow: hidden;
+}
+
+.table-line.date {
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.7rem;
+  line-height: 17px;
 }
 
-.value-row {
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.7rem;
-  color: #7b61ff;
-}
-
-.desc-row {
-  width: 11rem;
-}
-
-.table-row-icons {
+.table-line-icons {
   margin-right: 2rem;
 
   display: flex;
   gap: 2rem;
+}
+
+.table-value-line-Incoming {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+
+  color: #7b61ff;
+}
+
+.table-value-line-Outgoing {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+
+  color: #fa8c10;
 }

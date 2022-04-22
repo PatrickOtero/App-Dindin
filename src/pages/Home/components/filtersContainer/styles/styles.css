@@ -1,10 +1,22 @@
 @keyframes filtersOpenAndClose {
   0% {
+    opacity: 0;
     height: 0;
   }
 
   100% {
+    opacity: 1;
     height: 21.3rem;
+  }
+}
+
+@keyframes filtersButtonEffect {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
   }
 }
 
@@ -38,11 +50,12 @@
 }
 
 .show-filters-button-container:hover {
+  animation: filtersButtonEffect 200ms;
   transform: scale(1.2);
 }
 
 .filters-container {
-  animation: filtersOpenAndClose 300ms;
+  animation: filtersOpenAndClose 600ms;
   height: 21.3rem;
   width: 95.9rem;
 

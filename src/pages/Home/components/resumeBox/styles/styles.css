@@ -1,10 +1,20 @@
+@keyframes buttonHoverResume {
+  0% {
+    background: linear-gradient(91.26deg, #fa8c10 0%, #ff57d3 97.77%);
+  }
+
+  50% {
+    background: linear-gradient(121.26deg, #fa8c10 30%, #ff57d3 127.77%);
+  }
+}
+
 .Resume {
   margin-left: 4rem;
 
   margin-top: 5.5rem;
 }
 
-.Resume button {
+.Resume .resume-button {
   height: 4.2rem;
   width: 23.6rem;
 
@@ -17,6 +27,12 @@
 
   background: linear-gradient(91.26deg, #fa8c10 0%, #ff57d3 97.77%);
   cursor: pointer;
+}
+
+.Resume .resume-button:hover {
+  animation: buttonHoverResume 100ms;
+
+  background: linear-gradient(121.26deg, #fa8c10 30%, #ff57d3 127.77%);
 }
 
 .resume-container {

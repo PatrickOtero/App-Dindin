@@ -21,5 +21,8 @@ export default function useData() {
     'Alimentação',
   ])
 
-  return { weekDayCards, categoryCards }
+  return {
+    weekDayCards,
+    categoryCards,
+  }
 }
