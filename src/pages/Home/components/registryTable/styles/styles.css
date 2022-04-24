@@ -237,7 +237,8 @@
   width: 13.5rem;
   max-height: 6rem;
 
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .table-line.desc::-webkit-scrollbar {
