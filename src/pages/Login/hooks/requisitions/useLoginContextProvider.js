@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLocalStorage } from 'react-use'
-const useLoginReqs = () => {
+
+const useLoginContextProvider = () => {
   const [token, setToken, removeToken] = useLocalStorage('Token', '')
   const [loginError, setLoginError] = useState({})
   const [userName, setUserName, removeUserName] = useLocalStorage('User', '')
@@ -53,4 +54,4 @@ const useLoginReqs = () => {
   }
 }
 
-export default useLoginReqs
+export default useLoginContextProvider

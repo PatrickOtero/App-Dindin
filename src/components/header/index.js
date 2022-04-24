@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import dindin_logo from '../../assets/logo.svg'
-import useLoginReqs from '../../pages/Login/hooks/requisitions/useLoginReqs'
+import useLoginContext from '../../pages/Login/hooks/requisitions/useLoginContext'
 import arrow_icon from './assets/icone-seta.svg'
 import './styles/styles.css'
 
 function Header({ headerType }) {
   const [profileModal, setProfileModal] = useState(false)
-  const { userName, removeToken, removeUserName } = useLoginReqs()
+  const { userName, removeToken, removeUserName } = useLoginContext()
 
   const navigate = useNavigate()
 

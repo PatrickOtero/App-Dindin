@@ -1,40 +1,39 @@
-import useTableReqs from '../../../hooks/requisitions/useTableReqs'
+import useHomeContext from '../../../hooks/requisitions/useHomeContext'
 import close from './assets/close.svg'
 import './styles.css'
 
-const RegistryModal = ({
-  modalType,
-  setToggle,
-  registry_value,
-  category,
-  registry_date,
-  description,
-  setEditTypeButton,
-  editTypeButton,
-}) => {
+const RegistryModal = ({ modalType, setToggle }) => {
   const {
     handleAddRegistry,
-    createRegistryError,
-    createRegistrySuccess,
-    setCreateRegistryError,
-    setCreateRegistrySuccess,
     setRegistry_value,
     setRegistry_date,
     setCategory,
     setDescription,
-    addTypeButton,
-    setAddTypeButton,
-  } = useTableReqs()
+    typeButton,
+    setTypeButton,
+    handleEditRegistry,
+    registry_id,
+    registry_value,
+    category,
+    registry_date,
+    description,
+    setRegistryMessage,
+    registryMessage,
+    registryMessageValue,
+    setRegistryMessageValue,
+  } = useHomeContext()
 
   const handleCloseModal = () => {
     setToggle(false)
   }
+
+  console.log(registry_value)
+
   return (
     <div className="registry-modal-backdrop">
       <div className="registry">
-        {createRegistryError.message && <h2>{createRegistryError.message}</h2>}
-        {createRegistrySuccess.message && (
-          <h2>{createRegistrySuccess.message}</h2>
+        {registryMessageValue && (
+          <h2>{registryMessage[registryMessageValue]}</h2>
         )}
 
         <form>
@@ -43,8 +42,8 @@ const RegistryModal = ({
             {modalType === 'Edit' && <h1>Editar Registro</h1>}
             <img
               onClick={() => {
-                setCreateRegistryError('')
-                setCreateRegistrySuccess('')
+                setRegistryMessageValue('')
+                setRegistry_value(0)
                 handleCloseModal()
               }}
               src={close}
@@ -53,31 +52,15 @@ const RegistryModal = ({
           </div>
           <div className="registry-types-container">
             <button
-              onClick={() => {
-                if (modalType === 'Edit') {
-                  setEditTypeButton('Incoming')
-                  return
-                }
-                setAddTypeButton('Incoming')
-              }}
-              className={`incoming-button ${
-                modalType === 'Add' ? addTypeButton : editTypeButton
-              }`}
+              onClick={() => setTypeButton('Incoming')}
+              className={`incoming-button ${typeButton}`}
               type="button"
             >
               Entrada
             </button>
             <button
-              onClick={() => {
-                if (modalType === 'Edit') {
-                  setEditTypeButton('Outgoing')
-                  return
-                }
-                setAddTypeButton('Outgoing')
-              }}
-              className={`outgoing-button ${
-                modalType === 'Add' ? addTypeButton : editTypeButton
-              }`}
+              onClick={() => setTypeButton('Outgoing')}
+              className={`outgoing-button ${typeButton}`}
               type="button"
             >
               Saída
@@ -114,9 +97,9 @@ const RegistryModal = ({
           <div className="registry-modal-bottom-button">
             <button
               onClick={() => {
-                setCreateRegistryError('')
-                setCreateRegistrySuccess('')
-                handleAddRegistry()
+                setRegistryMessageValue('')
+                if (modalType === 'Add') handleAddRegistry()
+                if (modalType === 'Edit') handleEditRegistry(registry_id)
               }}
               type="button"
             >

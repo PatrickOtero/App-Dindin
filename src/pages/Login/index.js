@@ -1,5 +1,5 @@
 import Header from '../../components/header'
-import useLoginReqs from './hooks/requisitions/useLoginReqs'
+import useLoginContext from './hooks/requisitions/useLoginContext'
 import './styles.css'
 import passEye from './assets/passEye.svg'
 import slashedPassEye from './assets/slashedPassEye.svg'
@@ -20,7 +20,7 @@ const LoginPage = () => {
     removeToken,
     removeUserName,
     setLoginError,
-  } = useLoginReqs()
+  } = useLoginContext()
 
   const navigate = useNavigate()
 

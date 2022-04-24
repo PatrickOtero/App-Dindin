@@ -4,30 +4,35 @@ import edit_icon from '../../assets/caneta1.svg'
 import delete_icon from '../../assets/lixeira.svg'
 import setaBaixo from '../../assets/setaBaixo.svg'
 import setaCima from '../../assets/setaCima.svg'
-import useTableReqs from '../../hooks/requisitions/useTableReqs'
+import useHomeContext from '../../hooks/requisitions/useHomeContext'
 import RegistryModal from '../modals/registryModal'
 import './styles/styles.css'
 
 function RegistryTable() {
   const [dateOrdenation, setDateOrdenation] = useState(0)
   const [weekDaysOrdenation, setWeekDaysOrdenation] = useState(0)
-  const [editRegistryModal, setEditRegistryModal] = useState(false)
-  const [editTypeButton, setEditTypeButton] = useState('')
   const [toggle, setToggle] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
 
   const {
     handleListAllRegistries,
     allRegistries,
     emptyTableWarning,
+    setRegistry_id,
     setRegistry_value,
     setCategory,
     setRegistry_date,
     setDescription,
-    registry_value,
-    category,
-    registry_date,
-    description,
-  } = useTableReqs()
+    setTypeButton,
+    registryMessage,
+    registryMessageValue,
+    registry_id,
+    handleDeleteRegistry,
+    updateList,
+    setRegistryMessageValue,
+  } = useHomeContext()
+
+  console.log(updateList)
 
   const { getOnlyNumber, dateToJavascriptFormat } = useFunctions()
 
@@ -48,10 +53,18 @@ function RegistryTable() {
       await handleListAllRegistries()
     }
     handleLoadAllRegistriesList()
+  }, [registryMessageValue])
+
+  useEffect(() => {
+    setRegistryMessageValue('')
   }, [])
 
   return (
     <div className="Registries">
+      {(registryMessageValue === 'deleteError' ||
+        registryMessageValue === 'deleteSuccess') && (
+        <h2>{registryMessage[registryMessageValue]}</h2>
+      )}
       <div className="table-container">
         <div className="table-head">
           <div className="table-headers">
@@ -85,7 +98,8 @@ function RegistryTable() {
           </div>
         </div>
         <div className="table-body">
-          {allRegistries.length &&
+          {!emptyTableWarning &&
+            allRegistries.length &&
             allRegistries.map((registry) => {
               return (
                 <div key={registry.id} className="table-lines">
@@ -99,6 +113,7 @@ function RegistryTable() {
                   <div className="table-line-icons">
                     <img
                       onClick={() => {
+                        setRegistry_id(registry.id)
                         setRegistry_value(
                           getOnlyNumber(registry.registry_value),
                         )
@@ -107,33 +122,55 @@ function RegistryTable() {
                           dateToJavascriptFormat(registry.registry_date),
                         )
                         setDescription(registry.description)
-                        setEditTypeButton(registry.registry_type)
+                        setTypeButton(registry.registry_type)
 
                         setToggle(true)
                       }}
                       src={edit_icon}
                       alt="editar"
                     />
-                    <img src={delete_icon} alt="editar" />
+                    <div className="delete-modal-zone">
+                      <img
+                        onClick={() => {
+                          setRegistry_id(registry.id)
+                          setDeleteModal(true)
+                        }}
+                        src={delete_icon}
+                        alt="deletar"
+                      />
+                      {registry_id === registry.id && deleteModal && (
+                        <div className="table-line-delete-modal">
+                          <b>Apagar item?</b>
+                          <div className="table-line-delete-buttons">
+                            <button
+                              className="delete-button1"
+                              onClick={() => setDeleteModal(false)}
+                            >
+                              Não
+                            </button>
+                            <button
+                              className="delete-button2"
+                              onClick={() => {
+                                handleDeleteRegistry(registry.id)
+                                setDeleteModal(false)
+                              }}
+                            >
+                              Sim
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               )
             })}
-          {emptyTableWarning && <h2>{emptyTableWarning.message}</h2>}
+          {emptyTableWarning && (
+            <h3 className="empty-table-warning">{emptyTableWarning}</h3>
+          )}
         </div>
       </div>
-      {toggle && (
-        <RegistryModal
-          modalType="Edit"
-          setToggle={setToggle}
-          registry_value={registry_value}
-          category={category}
-          registry_date={registry_date}
-          description={description}
-          editTypeButton={editTypeButton}
-          setEditTypeButton={setEditTypeButton}
-        />
-      )}
+      {toggle && <RegistryModal modalType="Edit" setToggle={setToggle} />}
     </div>
   )
 }

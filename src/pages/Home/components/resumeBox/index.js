@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import useTableReqs from '../../hooks/requisitions/useTableReqs'
+import useHomeContext from '../../hooks/requisitions/useHomeContext'
 import RegistryModal from '../modals/registryModal'
 import './styles/styles.css'
 
@@ -15,7 +15,8 @@ function ResumeBox() {
     setCategory,
     setRegistry_date,
     setDescription,
-  } = useTableReqs()
+    setRegistryMessageValue,
+  } = useHomeContext()
 
   const [toggle, setToggle] = useState(false)
 
@@ -48,7 +49,8 @@ function ResumeBox() {
       <button
         className="resume-button"
         onClick={() => {
-          setRegistry_value('')
+          setRegistryMessageValue('')
+          setRegistry_value()
           setCategory('')
           setRegistry_date('')
           setDescription('')
