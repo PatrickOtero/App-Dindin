@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import useFunctions from '../../../../hooks/helpers/useFunctions'
+import useLogicHelpers from '../../hooks/helpers/useLogicHelpers'
 import edit_icon from '../../assets/caneta1.svg'
 import delete_icon from '../../assets/lixeira.svg'
 import setaBaixo from '../../assets/setaBaixo.svg'
@@ -13,6 +13,7 @@ function RegistryTable() {
   const [weekDaysOrdenation, setWeekDaysOrdenation] = useState(0)
   const [toggle, setToggle] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
+  const [sortsAndFilters, setSortsAndFilters] = useState('allTransactions')
 
   const {
     handleListAllRegistries,
@@ -28,24 +29,30 @@ function RegistryTable() {
     registryMessageValue,
     registry_id,
     handleDeleteRegistry,
-    updateList,
     setRegistryMessageValue,
   } = useHomeContext()
 
-  console.log(updateList)
+  console.log(sortsAndFilters)
+  console.log(dateOrdenation)
 
-  const { getOnlyNumber, dateToJavascriptFormat } = useFunctions()
+  const { getOnlyNumber, dateToJavascriptFormat } = useLogicHelpers()
 
   const handleDateOrder = () => {
     setDateOrdenation(dateOrdenation + 1)
 
-    if (dateOrdenation === 2) setDateOrdenation(0)
+    if (dateOrdenation === 0) setSortsAndFilters('allTransactions')
+    if (dateOrdenation === 1) setSortsAndFilters('dateDescendent')
+    if (dateOrdenation === 2) setSortsAndFilters('dateAscendent')
+    if (dateOrdenation > 2) setDateOrdenation(0)
   }
 
   const handleWeekDaysOrder = () => {
     setWeekDaysOrdenation(weekDaysOrdenation + 1)
 
-    if (weekDaysOrdenation === 2) setWeekDaysOrdenation(0)
+    if (weekDaysOrdenation === 0) setSortsAndFilters('allTransactions')
+    if (weekDaysOrdenation === 1) setSortsAndFilters('weekDescendent')
+    if (weekDaysOrdenation === 2) setSortsAndFilters('weekAscendent')
+    if (weekDaysOrdenation > 2) setWeekDaysOrdenation(0)
   }
 
   useEffect(() => {
@@ -53,7 +60,7 @@ function RegistryTable() {
       await handleListAllRegistries()
     }
     handleLoadAllRegistriesList()
-  }, [registryMessageValue])
+  }, [registryMessageValue, dateOrdenation, weekDaysOrdenation])
 
   useEffect(() => {
     setRegistryMessageValue('')
@@ -63,7 +70,9 @@ function RegistryTable() {
     <div className="Registries">
       {(registryMessageValue === 'deleteError' ||
         registryMessageValue === 'deleteSuccess') && (
-        <h2>{registryMessage[registryMessageValue]}</h2>
+        <h2 className="table-info-message">
+          {registryMessage[registryMessageValue]}
+        </h2>
       )}
       <div className="table-container">
         <div className="table-head">
@@ -99,8 +108,8 @@ function RegistryTable() {
         </div>
         <div className="table-body">
           {!emptyTableWarning &&
-            allRegistries.length &&
-            allRegistries.map((registry) => {
+            allRegistries[sortsAndFilters] &&
+            allRegistries[sortsAndFilters].map((registry) => {
               return (
                 <div key={registry.id} className="table-lines">
                   <b className="table-line date">{registry.registry_date}</b>
@@ -151,6 +160,7 @@ function RegistryTable() {
                             <button
                               className="delete-button2"
                               onClick={() => {
+                                setRegistryMessageValue('')
                                 handleDeleteRegistry(registry.id)
                                 setDeleteModal(false)
                               }}

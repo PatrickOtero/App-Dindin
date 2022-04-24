@@ -3,7 +3,7 @@ import useLoginContext from '../../../Login/hooks/requisitions/useLoginContext'
 
 const useHomeContextProvider = () => {
   const [emptyTableWarning, setEmptyTableWarning] = useState('')
-  const [allRegistries, setAllRegistries] = useState([])
+  const [allRegistries, setAllRegistries] = useState({})
   const [incoming, setIncoming] = useState(0)
   const [outgoing, setOutgoing] = useState(0)
   const [balance, setBalance] = useState(0)
@@ -21,6 +21,8 @@ const useHomeContextProvider = () => {
   const [typeButton, setTypeButton] = useState('Incoming')
 
   const [updateList, setUpdateList] = useState('')
+
+  const [sortsAndFilters, setSortsAndFilters] = useState('default')
 
   console.log(typeButton)
 
@@ -40,13 +42,26 @@ const useHomeContextProvider = () => {
         totalIncoming,
         totalOutgoing,
         balance,
+        dateDescendent,
+        dateAscendent,
+        weekDescendent,
+        weekAscendent,
       } = await allRegistriesResponse.json()
 
       if (!allTransactions.length) {
         return setEmptyTableWarning('Não há nenhum registro para exibir')
       }
 
-      setAllRegistries(allTransactions)
+      setAllRegistries({
+        allTransactions,
+        dateDescendent,
+        dateAscendent,
+        weekDescendent,
+        weekAscendent,
+      })
+
+      console.log(allRegistries)
+
       setIncoming(totalIncoming)
       setOutgoing(totalOutgoing)
       setBalance(balance)
@@ -192,6 +207,8 @@ const useHomeContextProvider = () => {
     handleEditRegistry,
     handleDeleteRegistry,
     updateList,
+    sortsAndFilters,
+    setSortsAndFilters,
   }
 }
 

@@ -1,4 +1,6 @@
-const useFunctions = () => {
+const useLogicHelpers = () => {
+  // General functions
+
   function getOnlyNumber(string) {
     let numberString = ''
     for (let letter of string) {
@@ -31,4 +33,4 @@ const useFunctions = () => {
   return { getOnlyNumber, dateToJavascriptFormat }
 }
 
-export default useFunctions
+export default useLogicHelpers

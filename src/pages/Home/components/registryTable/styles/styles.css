@@ -61,7 +61,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-.Registries h2 {
+.Registries .table-info-message {
   animation: registriesErrorAnim 4000ms;
 
   opacity: 0;

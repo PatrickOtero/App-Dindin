@@ -17,7 +17,6 @@ const RegistryModal = ({ modalType, setToggle }) => {
     category,
     registry_date,
     description,
-    setRegistryMessage,
     registryMessage,
     registryMessageValue,
     setRegistryMessageValue,
@@ -27,7 +26,7 @@ const RegistryModal = ({ modalType, setToggle }) => {
     setToggle(false)
   }
 
-  console.log(registry_value)
+  console.log(registry_date)
 
   return (
     <div className="registry-modal-backdrop">
