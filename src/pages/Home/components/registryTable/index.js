@@ -39,21 +39,34 @@ function RegistryTable() {
 
   const handleDateOrder = () => {
     setDateOrdenation(dateOrdenation + 1)
+    if (dateOrdenation === 2) setDateOrdenation(0)
 
-    if (dateOrdenation === 0) setSortsAndFilters('allTransactions')
-    if (dateOrdenation === 1) setSortsAndFilters('dateDescendent')
-    if (dateOrdenation === 2) setSortsAndFilters('dateAscendent')
-    if (dateOrdenation > 2) setDateOrdenation(0)
+    // if (dateOrdenation === 0) setSortsAndFilters('allTransactions')
+    // if (dateOrdenation === 1) setSortsAndFilters('dateDescendent')
+    // if (dateOrdenation === 2) setSortsAndFilters('dateAscendent')
+    // if (dateOrdenation === 2) setDateOrdenation(0)
   }
 
   const handleWeekDaysOrder = () => {
     setWeekDaysOrdenation(weekDaysOrdenation + 1)
+    if (weekDaysOrdenation === 2) setWeekDaysOrdenation(0)
+    // if (weekDaysOrdenation === 0) setSortsAndFilters('allTransactions')
+    // if (weekDaysOrdenation === 1) setSortsAndFilters('weekDescendent')
+    // if (weekDaysOrdenation === 2) setSortsAndFilters('weekAscendent')
+    // if (weekDaysOrdenation === 2) setWeekDaysOrdenation(0)
+  }
 
+  useEffect(() => {
+    if (dateOrdenation === 0) setSortsAndFilters('allTransactions')
+    if (dateOrdenation === 1) setSortsAndFilters('dateDescendent')
+    if (dateOrdenation === 2) setSortsAndFilters('dateAscendent')
+  }, [dateOrdenation])
+
+  useEffect(() => {
     if (weekDaysOrdenation === 0) setSortsAndFilters('allTransactions')
     if (weekDaysOrdenation === 1) setSortsAndFilters('weekDescendent')
     if (weekDaysOrdenation === 2) setSortsAndFilters('weekAscendent')
-    if (weekDaysOrdenation > 2) setWeekDaysOrdenation(0)
-  }
+  }, [weekDaysOrdenation])
 
   useEffect(() => {
     const handleLoadAllRegistriesList = async () => {

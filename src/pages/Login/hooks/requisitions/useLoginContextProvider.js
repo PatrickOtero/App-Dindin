@@ -15,7 +15,7 @@ const useLoginContextProvider = () => {
     }
     try {
       const loginResponse = await fetch(
-        'https://dindin-api-test.herokuapp.com/user/login',
+        'https://dindin-web-api.herokuapp.com/user/login',
         {
           method: 'POST',
           headers: { 'content-type': 'application/json' },

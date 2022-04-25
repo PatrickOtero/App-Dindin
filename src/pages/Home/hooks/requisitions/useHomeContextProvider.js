@@ -29,7 +29,7 @@ const useHomeContextProvider = () => {
   const handleListAllRegistries = async () => {
     try {
       const allRegistriesResponse = await fetch(
-        'https://dindin-api-test.herokuapp.com/transactions',
+        'https://dindin-web-api.herokuapp.com/transactions',
         {
           method: 'GET',
           headers: {
@@ -83,7 +83,7 @@ const useHomeContextProvider = () => {
 
     try {
       const createRegistryResponse = await fetch(
-        'https://dindin-api-test.herokuapp.com/transactions',
+        'https://dindin-web-api.herokuapp.com/transactions',
         {
           method: 'POST',
           body: JSON.stringify(body),
@@ -123,7 +123,7 @@ const useHomeContextProvider = () => {
 
     try {
       const editRegistryResponse = await fetch(
-        'https://dindin-api-test.herokuapp.com/transactions/' + registryId,
+        'https://dindin-web-api.herokuapp.com/transactions/' + registryId,
         {
           method: 'PUT',
           body: JSON.stringify(body),
@@ -155,7 +155,7 @@ const useHomeContextProvider = () => {
   const handleDeleteRegistry = async (registryId) => {
     try {
       const deleteRegistryResponse = await fetch(
-        'https://dindin-api-test.herokuapp.com/transactions/' + registryId,
+        'https://dindin-web-api.herokuapp.com/transactions/' + registryId,
         {
           method: 'DELETE',
           headers: {
