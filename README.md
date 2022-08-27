@@ -7,3 +7,4 @@
     1° - Clone o repositório localmente
     2° - Execute o comando no diretório raíz (onde está localizada a pasta src): "npm i" ou "yarn"
     3° - Execute o comando no mesmo local: "npm start" ou "yarn start"
+    4° - Necessita de banco de dados postgreSQL.
