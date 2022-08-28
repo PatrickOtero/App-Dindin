@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { apiAuth } from '../../../../services/axios'
 import useLoginContext from '../../../Login/hooks/requisitions/useLoginContext'
 
 const useHomeContextProvider = () => {
@@ -22,49 +23,46 @@ const useHomeContextProvider = () => {
 
   const [updateList, setUpdateList] = useState('')
 
-  const [sortsAndFilters, setSortsAndFilters] = useState('default')
+  const [sortsAndFilters, setSortsAndFilters] = useState('allTransactions')
 
   console.log(typeButton)
 
   const handleListAllRegistries = async () => {
+    setEmptyTableWarning("");
+    
     try {
-      const allRegistriesResponse = await fetch(
-        'https://dindin-web-api.herokuapp.com/transactions',
-        {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
-      const {
-        allTransactions,
-        totalIncoming,
-        totalOutgoing,
-        balance,
-        dateDescendent,
-        dateAscendent,
-        weekDescendent,
-        weekAscendent,
-      } = await allRegistriesResponse.json()
+      await apiAuth.get(
+        '/transactions').then(finalResponse => {
+          const {
+            allTransactions,
+            totalIncoming,
+            totalOutgoing,
+            balance,
+            dateDescendent,
+            dateAscendent,
+            weekDescendent,
+            weekAscendent,
+          } = finalResponse.data;
 
-      if (!allTransactions.length) {
-        return setEmptyTableWarning('Não há nenhum registro para exibir')
-      }
+          if (!allTransactions.length) {
+            return setEmptyTableWarning('Não há nenhum registro para exibir')
+          }
 
-      setAllRegistries({
-        allTransactions,
-        dateDescendent,
-        dateAscendent,
-        weekDescendent,
-        weekAscendent,
-      })
+          setAllRegistries({
+            allTransactions,
+            dateDescendent,
+            dateAscendent,
+            weekDescendent,
+            weekAscendent,
+          })
 
-      console.log(allRegistries)
+          console.log(allRegistries)
 
-      setIncoming(totalIncoming)
-      setOutgoing(totalOutgoing)
-      setBalance(balance)
+          setIncoming(totalIncoming)
+          setOutgoing(totalOutgoing)
+          setBalance(balance)
+        })
+
     } catch (error) {
       console.log(error)
     }
@@ -82,33 +80,18 @@ const useHomeContextProvider = () => {
     }
 
     try {
-      const createRegistryResponse = await fetch(
-        'https://dindin-web-api.herokuapp.com/transactions',
-        {
-          method: 'POST',
-          body: JSON.stringify(body),
-          headers: {
-            'content-type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
-      const createRegistryData = await createRegistryResponse.json()
-
-      if (!createRegistryData.ok) {
-        setRegistryMessage({ createError: createRegistryData.message })
-        setRegistryMessageValue('createError')
-        return
-      }
-
-      setRegistryMessage({ createSuccess: createRegistryData.message })
-      setRegistryMessageValue('createSuccess')
-      setRegistry_value(0)
-      setCategory('')
-      setRegistry_date('')
-      setDescription('')
+      await apiAuth.post(
+        '/transactions', body).then(finalResponse => {
+          setRegistryMessage({ createSuccess: finalResponse.data.message })
+          setRegistryMessageValue('createSuccess')
+          setRegistry_value(0)
+          setCategory('')
+          setRegistry_date('')
+          setDescription('')
+        })
     } catch (error) {
-      console.log(error)
+      setRegistryMessage({ createError: error.response.data.message })
+      setRegistryMessageValue('createError')
     }
   }
 
@@ -122,67 +105,43 @@ const useHomeContextProvider = () => {
     }
 
     try {
-      const editRegistryResponse = await fetch(
-        'https://dindin-web-api.herokuapp.com/transactions/' + registryId,
-        {
-          method: 'PUT',
-          body: JSON.stringify(body),
-          headers: {
-            'content-type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
-      const editRegistryData = await editRegistryResponse.json()
+      await apiAuth.put(
+        '/transactions/' + registryId, body).then(finalResponse => {
 
-      if (!editRegistryData.ok) {
-        setRegistryMessage({ editError: editRegistryData.message })
-        setRegistryMessageValue('editError')
-        return
-      }
+          setRegistryMessage({ editSuccess: finalResponse.data.message })
+          setRegistryMessageValue('editSuccess')
+          setRegistry_value(0)
+          setCategory('')
+          setRegistry_date('')
+          setDescription('')
+        })
 
-      setRegistryMessage({ editSuccess: editRegistryData.message })
-      setRegistryMessageValue('editSuccess')
-      setRegistry_value(0)
-      setCategory('')
-      setRegistry_date('')
-      setDescription('')
     } catch (error) {
-      console.log(error)
+      setRegistryMessage({ editError: error.response.data.message })
+      setRegistryMessageValue('editError')
     }
   }
 
   const handleDeleteRegistry = async (registryId) => {
     try {
-      const deleteRegistryResponse = await fetch(
-        'https://dindin-web-api.herokuapp.com/transactions/' + registryId,
-        {
-          method: 'DELETE',
-          headers: {
-            'content-type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
-      const deleteRegistryData = await deleteRegistryResponse.json()
+      await apiAuth.delete(
+        '/transactions/' + registryId).then(finalResponse => {
 
-      if (!deleteRegistryData.ok) {
-        setRegistryMessage({ deleteError: deleteRegistryData.message })
-        setRegistryMessageValue('deleteError')
-        return
-      }
+          setUpdateList('delete')
+          setRegistryMessage({ deleteSuccess: finalResponse.data.message })
+          setRegistryMessageValue('deleteSuccess')
+        })
 
-      setUpdateList('delete')
-      setRegistryMessage({ deleteSuccess: deleteRegistryData.message })
-      setRegistryMessageValue('deleteSuccess')
     } catch (error) {
-      console.log(error)
+      setRegistryMessage({ deleteError: error.response.data.message })
+      setRegistryMessageValue('deleteError')
     }
   }
 
   return {
     handleListAllRegistries,
     allRegistries,
+    setAllRegistries,
     emptyTableWarning,
     incoming,
     outgoing,

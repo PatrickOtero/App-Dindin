@@ -32,16 +32,6 @@
   }
 }
 
-@keyframes buttonHover {
-  0% {
-    background-color: #645ffb;
-  }
-
-  100% {
-    background-color: #8a70f1;
-  }
-}
-
 .registry-modal-backdrop {
   animation: registryBackdropFade 600ms;
 
@@ -121,7 +111,7 @@
   line-height: 4.3rem;
 }
 
-.registry form input {
+.registry form input, select {
   height: 6.34rem;
   width: 48.5rem;
   border-radius: 0.5rem;
@@ -161,21 +151,30 @@
 }
 
 .registry .incoming-button {
-  background-color: #b9b9b9;
+  background: linear-gradient(to right, #05ede3 10%, #b9b9b9 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 400ms;
 
   border-radius: 1rem 0 0 1rem;
 }
 
 .registry .outgoing-button {
+  background: linear-gradient(to right, #fa8c10 10%, #b9b9b9 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 400ms;
+
   border-radius: 0 1rem 1rem 0rem;
-  background: #b9b9b9;
 }
 
 .registry .incoming-button.Incoming {
+  background-position: left;
   background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
 }
 
 .registry .outgoing-button.Outgoing {
+  background-position: left;
   background: linear-gradient(91.66deg, #fa8c10 0%, #ff576b 90.32%);
 }
 
@@ -192,9 +191,10 @@
   margin-left: 12rem;
 
   cursor: pointer;
+
+  transition: 400ms;
 }
 
 .registry-modal-bottom-button button:hover {
-  animation: buttonHover 400ms;
   background-color: #8a70f1;
 }

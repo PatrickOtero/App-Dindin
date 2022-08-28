@@ -1,8 +1,8 @@
 import Header from '../../components/header'
 import useLoginContext from './hooks/requisitions/useLoginContext'
 import './styles.css'
-import passEye from './assets/passEye.svg'
-import slashedPassEye from './assets/slashedPassEye.svg'
+import passEye from '../../assets/passEye.svg'
+import slashedPassEye from '../../assets/slashedPassEye.svg'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -52,7 +52,7 @@ const LoginPage = () => {
       <main>
         {loginError && (
           <div className="loginErrors">
-            <h1>{loginError.message}</h1>
+            <h1>{loginError}</h1>
           </div>
         )}
         <form>
@@ -85,7 +85,12 @@ const LoginPage = () => {
             </div>
           </div>
           <div className="login-button">
-            <button onClick={() => handleUserLogin()} type="button">
+            <button
+              onClick={() => {
+                handleUserLogin()
+              }}
+              type="button"
+            >
               Entrar
             </button>
           </div>
@@ -93,7 +98,7 @@ const LoginPage = () => {
 
         <section>
           <b> Precisa criar uma conta?</b>
-          <button type="button">Registre-se</button>
+          <button onClick={() => navigate("/register")}type="button">Registre-se</button>
         </section>
       </main>
     </div>

@@ -26,8 +26,6 @@ const RegistryModal = ({ modalType, setToggle }) => {
     setToggle(false)
   }
 
-  console.log(registry_date)
-
   return (
     <div className="registry-modal-backdrop">
       <div className="registry">
@@ -73,12 +71,21 @@ const RegistryModal = ({ modalType, setToggle }) => {
             onChange={(e) => setRegistry_value(e.target.value)}
           />
           <label htmlFor="category-input">Categoria</label>
-          <input
+          <select
             value={category}
             id="category-input"
             type="text"
             onChange={(e) => setCategory(e.target.value)}
-          />
+          >
+            <option value="">Selecione uma categoria</option>
+            <option value="Pix">Pix</option>
+            <option value="TED">TED</option>
+            <option value="Depósito">Depósito</option>
+            <option value="Compras">Compras</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Contas">Contas</option>
+            </select>
           <label htmlFor="date-input">Data</label>
           <input
             value={registry_date}

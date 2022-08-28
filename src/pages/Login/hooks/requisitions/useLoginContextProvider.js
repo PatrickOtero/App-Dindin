@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useLocalStorage } from 'react-use'
+import { api } from '../../../../services/axios'
 
 const useLoginContextProvider = () => {
   const [token, setToken, removeToken] = useLocalStorage('Token', '')
-  const [loginError, setLoginError] = useState({})
+  const [loginError, setLoginError] = useState()
   const [userName, setUserName, removeUserName] = useLocalStorage('User', '')
   const [user_email, setUser_email] = useState('')
   const [user_password, setUser_password] = useState('')
@@ -13,29 +14,22 @@ const useLoginContextProvider = () => {
       user_email,
       user_password,
     }
-    try {
-      const loginResponse = await fetch(
-        'https://dindin-web-api.herokuapp.com/user/login',
-        {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(body),
-        },
-      )
-      const loginData = await loginResponse.json()
 
-      if (!loginResponse.ok) {
-        setLoginError(loginData)
-        const errorInterval = setInterval(() => {
-          setLoginError('')
-          clearInterval(errorInterval)
-        }, 2000)
-        return
-      }
-      setUserName(loginData.userData.user_name)
-      setToken(loginData.token)
+    try {
+      await api.post(
+        '/user/login', body).then(finalResponse => {
+          
+          setUserName(finalResponse.data.userData.user_name)
+          setToken(finalResponse.data.token)
+        })
+
     } catch (error) {
-      console.log(error)
+      setLoginError(error.response.data.message)
+      const errorInterval = setInterval(() => {
+        setLoginError('')
+        clearInterval(errorInterval)
+      }, 2000)
+      console.log(error.response.data.message)
     }
   }
 
@@ -47,6 +41,7 @@ const useLoginContextProvider = () => {
     user_password,
     setUser_email,
     setUser_password,
+    setUserName,
     userName,
     removeToken,
     removeUserName,

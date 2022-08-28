@@ -94,6 +94,7 @@
   animation: profileModal 300ms;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -102,12 +103,14 @@
   right: 7rem;
   top: 4rem;
 
+  gap: 1rem;
+
   background-color: #fafafa;
   box-shadow: 0px 0.2rem 1.1rem 0px #0000001a;
   border-radius: 3rem;
 
   width: 20rem;
-  height: 10rem;
+  height: 15rem;
 
   z-index: 2;
 }

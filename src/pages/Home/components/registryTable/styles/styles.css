@@ -8,26 +8,6 @@
   }
 }
 
-@keyframes buttonHover1 {
-  0% {
-    background-color: #3a9ff1;
-  }
-
-  100% {
-    background-color: #79bdf5;
-  }
-}
-
-@keyframes buttonHover2 {
-  0% {
-    background-color: #ff576b;
-  }
-
-  100% {
-    background-color: #f08b97;
-  }
-}
-
 @keyframes deleteModalfadeIn {
   0% {
     opacity: 0;
@@ -55,6 +35,19 @@
   }
 }
 
+@keyframes tableRowSlideToRight {
+  0% {
+    opacity: 0;
+    margin-right: 30rem;
+  }
+
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+
 .Registries {
   margin-top: 5.3rem;
 
@@ -65,7 +58,6 @@
   animation: registriesErrorAnim 4000ms;
 
   opacity: 0;
-  z-index: -2;
 
   display: flex;
   justify-content: center;
@@ -161,6 +153,8 @@
   align-items: center;
 
   width: 10rem;
+  height: 5rem;
+  border-radius: 1rem;
 
   font-size: 1.4rem;
   font-weight: 700;
@@ -171,6 +165,12 @@
   position: absolute;
 
   right: 5rem;
+
+  transition: 800ms;
+}
+
+.table-head-date-arrow img:hover {
+  transform: rotate(-180deg);
 }
 
 .table-head-date-arrow {
@@ -185,6 +185,12 @@
   position: absolute;
 
   left: 11rem;
+
+  transition: 800ms;
+}
+
+.table-head-desc-arrow img:hover {
+  transform: rotate(-180deg);
 }
 
 .table-head-desc-arrow {
@@ -198,7 +204,7 @@
 .table-header.date {
   justify-content: unset;
 
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .table-header.desc {
@@ -212,13 +218,20 @@
 }
 
 .table-lines {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 
-  height: 6rem;
+   height: 6rem;
 
-  padding: 0 2rem;
+   padding: 0 2rem;
+
+    animation: tableRowSlideToRight 1000ms;
+    transition: 400ms;
+}
+
+.table-lines:hover {
+  background-color: #3a9ff185;
 }
 
 .table-line {
@@ -338,18 +351,18 @@
 
 .table-line-delete-buttons .delete-button1 {
   background-color: #3a9ff1;
+  transition: 300ms;
 }
 
 .table-line-delete-buttons .delete-button2 {
   background-color: #ff576b;
+  transition: 300ms;
 }
 
 .table-line-delete-buttons .delete-button1:hover {
-  animation: buttonHover1 300ms;
   background-color: #79bdf5;
 }
 
 .table-line-delete-buttons .delete-button2:hover {
-  animation: buttonHover2 300ms;
   background-color: #f08b97;
 }

@@ -1,17 +1,19 @@
-import Header from '../../components/header'
 import './styles.css'
-import passEye from '../../assets/passEye.svg'
-import slashedPassEye from '../../assets/slashedPassEye.svg'
+import passEye from '../../../../assets/passEye.svg'
+import slashedPassEye from '../../../../assets/slashedPassEye.svg'
+import closeButton from "../../assets/xis.svg"
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import useUserContext from '../../hooks/useUserContext'
+import useUserContext from '../../../../hooks/useUserContext'
+import useLoginContext from '../../../../pages/Login/hooks/requisitions/useLoginContext'
 
-const RegistrationPage = () => {
-    const [seePass, setSeePass] = useState('password')
+const ProfileModal = () => {
+
+    const [seePass, setSeePass] = useState("password")
 
   const {
-    handleUserRegistration,
-    registerMessages,
+    handleEditUser,
+    setProfileMessages,
+    profileMessages,
     setUser_name,
     user_name,
     setUser_email,
@@ -19,27 +21,30 @@ const RegistrationPage = () => {
     setUser_password,
     user_password,
     setUser_confirm_password,
-    user_confirm_password
+    user_confirm_password,
+    setProfileModal,
   } = useUserContext()
 
-  const navigate = useNavigate()
+  const { setUserName } = useLoginContext()
 
   return (
-    <div className="RegistrationPage">
-      <header>
-        <Header headerType="HeaderLoginScreen" />
-      </header>
-      <main>
-        {registerMessages && (
-          <div className="registerErrors">
-            <h1>{registerMessages}</h1>
+    <div className="ProfileModal">
+        {profileMessages && (
+          <div className="profileErrors">
+            <h1>{profileMessages}</h1>
           </div>
         )}
         <form>
-          <h1>
-            Insira seus dados para registro
-          </h1>
-          <div className="register-inputs">
+            <div className='top-profile-modal'>   
+                <h1>
+                    Edite suas informações
+                </h1>
+                <img onClick={() => {
+                    setProfileMessages("");
+                    setProfileModal(false)
+                    }} src={closeButton} alt="sair"/>
+            </div>
+          <div className="profile-inputs">
           <label htmlFor="userName">Nome</label>
             <input
               value={user_name}
@@ -55,7 +60,7 @@ const RegistrationPage = () => {
               id="userEmail"
               type="email"
             />
-            <div className="register-pass-input">
+            <div className="profile-pass-input">
               <label htmlFor="userPassword">Senha</label>
               <input
                 value={user_password}
@@ -79,25 +84,19 @@ const RegistrationPage = () => {
               />
             </div>
           </div>
-          <div className="register-button">
+          <div className="profile-button">
             <button
               onClick={() => {
-                handleUserRegistration()
+                handleEditUser(setUserName)
               }}
               type="button"
             >
-              Registrar
+              Confirmar
             </button>
           </div>
         </form>
-
-        <section>
-          <b> Já tem uma conta?</b>
-          <button onClick={() => navigate("/")} type="button">Fazer login</button>
-        </section>
-      </main>
     </div>
   )
 }
 
-export default RegistrationPage
+export default ProfileModal

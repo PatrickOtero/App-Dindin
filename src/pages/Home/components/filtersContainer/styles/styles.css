@@ -116,6 +116,16 @@
   justify-content: space-around;
 
   gap: 1.245rem;
+
+  transition: 400ms;
+}
+
+.selected {
+  background-color: #3a9ff1;
+}
+
+.filter-card:hover {
+  background-color: #3a9ff188;
 }
 
 .filter-card span {
@@ -145,4 +155,50 @@
   font-weight: 400;
   line-height: 1.1rem;
   color: #484848;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 1.5rem;
+
+  max-height: 6rem;
+  max-width: 19.6rem;
+  margin-bottom: -13rem;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.filterButtons button {
+  height: 3rem;
+  width: 9.8rem;
+  border-radius: 1rem;
+}
+
+.clear-button {
+  background: #fafafa;
+  box-shadow: 0px 2px 11px 0px #0000001a;
+
+  transition: 400ms;
+}
+
+.clear-button:hover {
+  background: #fa8d108a;
+  box-shadow: 0px 2px 11px 0px #0000001a;
+}
+
+.apply-button {
+  background: linear-gradient(to right, #3a9ff1 -3.40%, #05ede3 90%);
+  box-shadow: 0px 2px 11px 0px #0000001a;
+  color: white;
+
+  background-size: 200% 100%;
+  background-position: right;
+
+  transition: 500ms;
+}
+
+.apply-button:hover {
+background-position: left;
 }
