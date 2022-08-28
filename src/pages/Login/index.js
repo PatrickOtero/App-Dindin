@@ -37,7 +37,9 @@ const LoginPage = () => {
   }
 
   useEffect(() => {
-    setLoginError('')
+      setLoginError('')
+      setUser_email("")
+      setUser_password("")
   }, [])
 
   useEffect(() => {

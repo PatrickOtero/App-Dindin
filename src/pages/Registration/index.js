@@ -2,7 +2,7 @@ import Header from '../../components/header'
 import './styles.css'
 import passEye from '../../assets/passEye.svg'
 import slashedPassEye from '../../assets/slashedPassEye.svg'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useUserContext from '../../hooks/useUserContext'
 
@@ -23,6 +23,13 @@ const RegistrationPage = () => {
   } = useUserContext()
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setUser_name("")
+    setUser_email("")
+    setUser_password("")
+    setUser_confirm_password("");
+  }, [])
 
   return (
     <div className="RegistrationPage">
