@@ -1,5 +1,5 @@
 # App-Dindin
-##% Web-app que foi o terceiro desafio de front-end da Cubos Academy, porém melhorado em todos os aspectos: Interface, organização, componentização, compartilhamento de recursos com Context Api, API própria e dados persistidos em postgreSQL (A API referida está "linkada" logo abaixo).
+### Web-app que foi o terceiro desafio de front-end da Cubos Academy, porém melhorado em todos os aspectos: Interface, organização, componentização, compartilhamento de recursos com Context Api, API própria e dados persistidos em postgreSQL (A API referida está "linkada" logo abaixo).
 
 - Repositório de back-end: https://github.com/PatrickOtero/API-Dindin
 
