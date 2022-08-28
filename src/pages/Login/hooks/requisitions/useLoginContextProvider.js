@@ -29,7 +29,6 @@ const useLoginContextProvider = () => {
         setLoginError('')
         clearInterval(errorInterval)
       }, 2000)
-      console.log(error.response.data.message)
     }
   }
 

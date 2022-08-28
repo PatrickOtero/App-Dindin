@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { apiAuth } from '../../../../services/axios'
-import useLoginContext from '../../../Login/hooks/requisitions/useLoginContext'
 
 const useHomeContextProvider = () => {
   const [emptyTableWarning, setEmptyTableWarning] = useState('')
@@ -18,18 +17,15 @@ const useHomeContextProvider = () => {
   const [category, setCategory] = useState('')
   const [description, setDescription] = useState('')
 
-  const { token } = useLoginContext()
   const [typeButton, setTypeButton] = useState('Incoming')
 
   const [updateList, setUpdateList] = useState('')
 
   const [sortsAndFilters, setSortsAndFilters] = useState('allTransactions')
 
-  console.log(typeButton)
-
   const handleListAllRegistries = async () => {
     setEmptyTableWarning("");
-    
+
     try {
       await apiAuth.get(
         '/transactions').then(finalResponse => {
@@ -56,8 +52,6 @@ const useHomeContextProvider = () => {
             weekAscendent,
           })
 
-          console.log(allRegistries)
-
           setIncoming(totalIncoming)
           setOutgoing(totalOutgoing)
           setBalance(balance)
@@ -69,7 +63,6 @@ const useHomeContextProvider = () => {
   }
 
   const handleAddRegistry = async () => {
-    console.log(registry_date)
 
     const body = {
       registry_value,
