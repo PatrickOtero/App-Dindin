@@ -25,9 +25,6 @@ function RegistryTable() {
 
   const { allRegistriesList } = useList({ toggle, setToggle })
 
-  console.log(sortsAndFilters)
-  console.log(dateOrdenation)
-
   const handleDateOrder = () => {
     setDateOrdenation(dateOrdenation + 1)
     if (dateOrdenation === 2) setDateOrdenation(0)
