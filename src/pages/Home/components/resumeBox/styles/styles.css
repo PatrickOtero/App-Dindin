@@ -1,0 +1,103 @@
+@keyframes buttonHoverResume {
+  0% {
+    background: linear-gradient(91.26deg, #fa8c10 0%, #ff57d3 97.77%);
+  }
+
+  50% {
+    background: linear-gradient(121.26deg, #fa8c10 30%, #ff57d3 127.77%);
+  }
+}
+
+.Resume {
+  margin-left: 4rem;
+
+  margin-top: 5.5rem;
+}
+
+.Resume .resume-button {
+  height: 4.2rem;
+  width: 23.6rem;
+
+  margin-top: 1.6rem;
+
+  border-radius: 0.5rem;
+  border: none;
+
+  color: white;
+
+  background: linear-gradient(to right, #fa8c10 40%, #ff57d3 97.77%);
+  cursor: pointer;
+
+  background-size: 200% 100%;
+  background-position: right;
+  transition: 400ms;
+}
+
+.Resume .resume-button:hover {
+  background-position: left;
+}
+
+.resume-container {
+  height: 19.6rem;
+  width: 23.6rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fafafa;
+  box-shadow: 0px 0.2rem 1.1rem 0px #0000001a;
+
+  padding: 2.6rem 3.3rem 0 3.3rem;
+
+  font-family: 'Rubik', sans-serif;
+}
+
+.resume-container > b {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+
+  margin-bottom: 2.3rem;
+}
+
+.resume-values {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.2rem;
+  padding-bottom: 1.9rem;
+
+  border-bottom: 0.1rem solid #eaeaea;
+}
+
+.resume-value {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resume-incoming-numbers {
+  color: #645ffb;
+}
+
+.resume-outgoing-numbers {
+  color: #fa8c10;
+}
+
+.resume-balance-numbers {
+  color: #3a9ff1;
+}
+
+.balance {
+  margin-top: 1.2rem;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+}
+
+.resume-values b {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}

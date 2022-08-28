@@ -1,0 +1,55 @@
+@keyframes graduarBackdropHome {
+  0% {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.342);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.home-backdrop {
+  animation: graduarBackdropHome 1000ms;
+
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Home {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Header */
+header {
+  width: 100%;
+}
+
+/* Main */
+.Home main {
+  display: flex;
+
+  width: 100%;
+  padding: 5.5rem 10rem 0 10.5rem;
+
+  border-radius: 6rem 6rem 0 0;
+  background-color: white;
+
+  position: relative;
+  z-index: 1;
+
+  bottom: 6rem;
+}
+
+.filter-table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sections */
+section {
+  width: 100%;
+}

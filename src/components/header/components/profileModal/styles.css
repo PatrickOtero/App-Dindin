@@ -1,0 +1,162 @@
+  @keyframes profileErrorAnim {
+    0% {
+      margin-top: -10rem;
+      opacity: 0;
+    }
+  
+    50% {
+      margin-top: 0;
+      opacity: 1;
+    }
+  
+    100% {
+      margin-top: -10rem;
+      opacity: 0;
+    }
+  }
+
+  .ProfileModal {
+    position: absolute;
+
+    height: 101vh;
+    
+    top: -15.5rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background-color: #00000065;
+    
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .profileErrors {
+    animation: profileErrorAnim 2001ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    position: absolute;
+    top: 10rem;
+    z-index: 2;
+  
+    width: 50rem;
+    height: 5rem;
+  
+    background-color: #645ffb98;
+  
+    border-radius: 3rem;
+  
+    font-weight: 700;
+    color: white;
+  }
+
+  .top-profile-modal {
+    display: flex;
+
+    gap: 2rem;
+  }
+
+  .top-profile-modal img {
+    cursor: pointer;
+  }
+  
+  .ProfileModal form {
+    animation: moverForm 600ms;
+    position: relative;
+    z-index: 3;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+  
+    width: 50rem;
+    height: 70rem;
+    margin-top: 10rem;
+    padding: 8rem;
+  
+    background: #fafafa;
+    box-shadow: 0px 0.2rem 1.1rem 0px #000000;
+  
+    border-radius: 6rem;
+  
+    color: black;
+  }
+  
+  .ProfileModal form h1 {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  
+  .profile-inputs {
+    display: flex;
+    flex-direction: column;
+  
+    margin-top: 2rem;
+  }
+  
+  .ProfileModal label {
+    font-size: 2rem;
+    font-weight: 500;
+  
+    margin-bottom: 1rem;
+  }
+  
+  .ProfileModal input {
+    width: 35rem;
+    height: 5rem;
+  
+    border-radius: 2rem;
+    border: 0.1rem solid black;
+  
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  
+    font-size: 2rem;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .ProfileModal button {
+    width: 20rem;
+    height: 4rem;
+  
+    border-radius: 2rem;
+    border: none;
+    background: #b9b9b9;
+    cursor: pointer;
+  
+    color: white;
+    font-weight: 700;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  .ProfileModal form button {
+    margin-left: 21%;
+  }
+  
+  .ProfileModal form button:hover {
+    background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
+  }
+  
+  .ProfileModal section button:hover {
+    background: linear-gradient(91.66deg, #fa8c10 0%, #ff576b 90.32%);
+  }
+  .profile-pass-input {
+    position: relative;
+  }
+  
+  .profile-pass-input img {
+    position: absolute;
+  
+    top: 38px;
+    right: 10px;
+  
+    cursor: pointer;
+  }
+  

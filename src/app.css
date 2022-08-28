@@ -1,0 +1,22 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+button {
+  border: none;
+
+  cursor: pointer;
+}

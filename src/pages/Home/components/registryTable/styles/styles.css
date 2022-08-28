@@ -1,0 +1,368 @@
+@keyframes emptyWarning {
+  0% {
+    color: rgba(56, 56, 56, 0.398);
+  }
+
+  100% {
+    color: rgb(0, 0, 0);
+  }
+}
+
+@keyframes deleteModalfadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes registriesErrorAnim {
+  0% {
+    margin-left: -30rem;
+    opacity: 0;
+  }
+
+  50% {
+    margin-left: 0;
+    opacity: 1;
+  }
+
+  100% {
+    margin-left: -30rem;
+    opacity: 0;
+  }
+}
+
+@keyframes tableRowSlideToRight {
+  0% {
+    opacity: 0;
+    margin-right: 30rem;
+  }
+
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+
+.Registries {
+  margin-top: 5.3rem;
+
+  font-family: 'Lato', sans-serif;
+}
+
+.Registries .table-info-message {
+  animation: registriesErrorAnim 4000ms;
+
+  opacity: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  left: 0;
+  bottom: 50%;
+
+  width: 50rem;
+  height: 5rem;
+
+  background-color: #645ffbdb;
+
+  border-radius: 0 3rem 3rem 0;
+
+  font-weight: 700;
+  color: white;
+}
+
+.empty-table-warning {
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: rgba(56, 56, 56, 0.398);
+
+  margin: 2rem 0 2rem 2rem;
+}
+
+.empty-table-warning:hover {
+  animation: emptyWarning 400ms;
+  color: rgb(0, 0, 0);
+
+  cursor: default;
+}
+
+.table-container {
+  width: 96.4rem;
+}
+
+.table-container img {
+  cursor: pointer;
+}
+
+.table-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 5.8rem;
+  width: 96.4rem;
+
+  box-shadow: 0px 0.2rem 1.1rem 0px #0000001a;
+  background-color: #fafafa;
+}
+
+.table-body {
+  max-height: 40rem;
+
+  overflow: scroll;
+}
+
+.table-body::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.table-body::-webkit-scrollbar-track {
+  color: white;
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  border-radius: 3rem;
+  background-color: #3a9ff1;
+}
+
+.table-body::-webkit-scrollbar-thumb:hover {
+  background-color: #7bbef4;
+}
+
+.table-headers {
+  width: 96.4rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 10rem;
+  height: 5rem;
+  border-radius: 1rem;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.7rem;
+}
+
+.table-head-date-arrow img {
+  position: absolute;
+
+  right: 5rem;
+
+  transition: 800ms;
+}
+
+.table-head-date-arrow img:hover {
+  transform: rotate(-180deg);
+}
+
+.table-head-date-arrow {
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.table-head-desc-arrow img {
+  position: absolute;
+
+  left: 11rem;
+
+  transition: 800ms;
+}
+
+.table-head-desc-arrow img:hover {
+  transform: rotate(-180deg);
+}
+
+.table-head-desc-arrow {
+  cursor: pointer;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.table-header.date {
+  justify-content: unset;
+
+  margin-left: 2rem;
+}
+
+.table-header.desc {
+  width: 14.5rem;
+
+  text-align: center;
+}
+
+.table-header.empty {
+  width: 9rem;
+}
+
+.table-lines {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   height: 6rem;
+
+   padding: 0 2rem;
+
+    animation: tableRowSlideToRight 1000ms;
+    transition: 400ms;
+}
+
+.table-lines:hover {
+  background-color: #3a9ff185;
+}
+
+.table-line {
+  display: flex;
+  justify-content: center;
+
+  width: 8rem;
+
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.table-line.desc {
+  width: 13.5rem;
+  max-height: 6rem;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.table-line.desc::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.table-line.desc::-webkit-scrollbar-track {
+  color: white;
+}
+
+.table-line.desc::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background-color: #3a9ff1;
+}
+
+.table-line.date {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.table-line-icons {
+  margin-right: 2rem;
+
+  display: flex;
+  gap: 2rem;
+}
+
+.table-value-line-Incoming {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+
+  color: #7b61ff;
+}
+
+.table-value-line-Outgoing {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+
+  color: #fa8c10;
+}
+
+.delete-modal-zone {
+  position: relative;
+}
+
+.table-line-delete-modal {
+  animation: deleteModalfadeIn 400ms;
+
+  height: 46px;
+  width: 111px;
+  border-radius: 4px;
+
+  background-color: #e4f2fd;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 1rem;
+
+  position: absolute;
+  right: -2rem;
+  bottom: -1rem;
+}
+
+.table-line-delete-modal b {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 12px;
+}
+
+.table-line-delete-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.table-line-delete-buttons button {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 11px;
+  color: white;
+
+  height: 15px;
+  width: 37px;
+  border-radius: 4px;
+
+  border: none;
+  cursor: pointer;
+}
+
+.table-line-delete-buttons .delete-button1 {
+  background-color: #3a9ff1;
+  transition: 300ms;
+}
+
+.table-line-delete-buttons .delete-button2 {
+  background-color: #ff576b;
+  transition: 300ms;
+}
+
+.table-line-delete-buttons .delete-button1:hover {
+  background-color: #79bdf5;
+}
+
+.table-line-delete-buttons .delete-button2:hover {
+  background-color: #f08b97;
+}
