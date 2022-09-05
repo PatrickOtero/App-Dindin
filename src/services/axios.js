@@ -1,13 +1,14 @@
 import axios from "axios"
 
-const localUrl = "http://localhost:3334"
+// const localUrl = "http://localhost:3334"
+const remoteUrl = "https://api-dindin-production.up.railway.app"
 
 export const api = axios.create({ 
-    baseURL: localUrl,
+    baseURL: remoteUrl,
 });
 
 export const apiAuth = axios.create({
-    baseURL: localUrl,
+    baseURL: remoteUrl,
 })
 
 apiAuth.interceptors.request.use((config) => {
