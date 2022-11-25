@@ -19,18 +19,18 @@
 ## Para que as funcionalidades do app executem, você precisará baixar o repositório Backend deste mesmo aplicativo e executá-lo, que está no link logo no início deste README.md. Siga as instruções do mesmo para executar o Backend.
 
 ## Tela de login
-<img src="./mdAssets/dindinLogin.jpeg">
+<img src="./mdAssets/dindinLogin.jpg">
 
 ## Tela de registro de usuário
-<img src="./mdAssets/dindinRegistro.jpeg">
+<img src="./mdAssets/dindinRegistro.jpg">
 
 ## Tela home
-<img src="./mdAssets/dindinHome.jpeg">
+<img src="./mdAssets/dindinHome.jpg">
 
 ## Modal de transação
-<img src="./mdAssets/dindinModalRegistro.jpeg">
+<img src="./mdAssets/dindinModalRegistro.jpg">
 
 ## Modal de edição de usuário
-<img src="./mdAssets/dindinModalDeUsuario.jpeg">
+<img src="./mdAssets/dindinModalDeUsuario.jpg">
 
 ### Obrigado pela boa vontade.
