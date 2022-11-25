@@ -32,7 +32,7 @@ const useList = ({ setToggle }) => {
 
   const { weekDaysList, categoriesList, minValue, maxValue } = useDataContext()
 
-  const { getOnlyNumber, dateToJavascriptFormat } = useLogicHelpers()
+  const { dateToJavascriptFormat } = useLogicHelpers()
 
   const tableList = (registry) => {
     return (
