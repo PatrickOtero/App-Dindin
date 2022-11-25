@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const localUrl = "http://localhost:3334"
-// const remoteUrl = "https://api-dindin-production.up.railway.app"
+// const localUrl = "http://localhost:3334"
+const remoteUrl = "https://angry-gray-crayfish.cyclic.app"
 
 export const api = axios.create({ 
     baseURL: localUrl,
