@@ -4,7 +4,6 @@
 - Repositório de back-end: https://github.com/PatrickOtero/API-Dindin
 
  ## Caso prefira testar online: https://app-web-dindin.netlify.app/
-      OBS: O sistema deste app está hospedado em um serviço gratuíto que limita o tempo em que ele pode ficar online, portanto, o aplicativo pode não funcionar quando testar, se for esse o seu caso, terá que esperar para testar até o início do próximo mês.
 
  ## Caso prefira testar localmente:
       1° - Baixe a engine (motor) que interpretará as funcionalidades das dependências em javascript, o Node, através deste link: https://nodejs.org/en/download/
