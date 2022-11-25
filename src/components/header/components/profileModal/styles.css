@@ -31,6 +31,8 @@
 
     justify-content: center;
     align-items: center;
+
+    font-family: 'Rubik', sans-serif;
   }
 
   
@@ -58,10 +60,13 @@
   .top-profile-modal {
     display: flex;
 
-    gap: 2rem;
+    justify-content: space-between;
   }
 
   .top-profile-modal img {
+    position: absolute;
+    right: 3rem;
+    top: 4rem;
     cursor: pointer;
   }
   
@@ -73,12 +78,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 3rem;
   
     width: 50rem;
     height: 70rem;
     margin-top: 10rem;
-    padding: 8rem;
   
     background: #fafafa;
     box-shadow: 0px 0.2rem 1.1rem 0px #000000;
@@ -118,7 +123,6 @@
     padding-left: 2rem;
   
     font-size: 2rem;
-    font-family: 'Rubik', sans-serif;
   }
   
   .ProfileModal button {
@@ -136,10 +140,6 @@
     font-size: 1.5rem;
   }
   
-  .ProfileModal form button {
-    margin-left: 21%;
-  }
-  
   .ProfileModal form button:hover {
     background: linear-gradient(91.26deg, #05ede3 0%, #3a9ff1 97.77%);
   }
@@ -151,11 +151,11 @@
     position: relative;
   }
   
-  .profile-pass-input img {
+  .profile-inputs img {
     position: absolute;
   
-    top: 38px;
-    right: 10px;
+    bottom: 270px;
+    right: 95px;
   
     cursor: pointer;
   }

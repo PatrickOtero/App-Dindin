@@ -60,7 +60,6 @@ const ProfileModal = () => {
               id="userEmail"
               type="email"
             />
-            <div className="profile-pass-input">
               <label htmlFor="userPassword">Senha</label>
               <input
                 value={user_password}
@@ -82,7 +81,6 @@ const ProfileModal = () => {
                 src={seePass === 'password' ? slashedPassEye : passEye}
                 alt="Ver/Não ver"
               />
-            </div>
           </div>
           <div className="profile-button">
             <button
