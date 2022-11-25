@@ -1,14 +1,14 @@
 import axios from "axios"
 
-const localUrl = "http://localhost:3334"
-// const remoteUrl = "https://angry-gray-crayfish.cyclic.app"
+// const localUrl = "http://localhost:3334"
+const remoteUrl = "https://angry-gray-crayfish.cyclic.app"
 
 export const api = axios.create({ 
-    baseURL: localUrl,
+    baseURL: remoteUrl,
 });
 
 export const apiAuth = axios.create({
-    baseURL: localUrl,
+    baseURL: remoteUrl,
 })
 
 apiAuth.interceptors.request.use((config) => {
